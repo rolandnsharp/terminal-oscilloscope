@@ -57,22 +57,30 @@ sudo ln -s $(pwd)/osc /usr/local/bin/osc
 
 ## Configuration
 
-Edit the constants at the top of `src/osc.nim` or `src/osc_braille.nim`:
+Runtime options can be passed via CLI flags:
 
-```nim
-const
-  # Phosphor physics
-  Decay = 0.85           # persistence per frame (0.0–1.0)
-  Beam = 0.4             # intensity at beam impact
-  Bloom = 0.08           # horizontal glow spread
+```bash
+./osc --palette:amber --decay:0.92 --beam:0.6 --bloom:0.12
+./osc_braille --palette:green --hot:0.8 --warm:0.45 --cool:0.12
+```
 
-  # Phosphor glow thresholds
-  HotGlow = 0.7          # white-hot beam core
-  WarmGlow = 0.4         # bright phosphor
-  CoolGlow = 0.15        # dim persistence trail
+Available options:
 
-  # Palette: green, amber, cyan, blue, white, red
-  Palette = "green"
+| Option | Description | Default |
+|--------|-------------|---------|
+| `-p`, `--palette:NAME` | Palette name | `green` |
+| `-d`, `--decay:FLOAT` | Phosphor persistence per frame | `0.85` |
+| `--beam:FLOAT` | Beam impact intensity | `0.4` |
+| `--bloom:FLOAT` | Horizontal glow spread | `0.08` |
+| `--hot:FLOAT` | White-hot beam core threshold | `0.7` |
+| `--warm:FLOAT` | Bright phosphor threshold | `0.4` |
+| `--cool:FLOAT` | Dim persistence trail threshold | `0.15` |
+
+Show help:
+
+```bash
+./osc --help
+./osc_braille --help
 ```
 
 ### Palettes

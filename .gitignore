@@ -5,3 +5,7 @@ nimcache/
 demo.png/
 diag.png/
 diag.tape
+
+# Nix
+result
+result-*
